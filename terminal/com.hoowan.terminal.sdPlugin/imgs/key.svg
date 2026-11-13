@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<rect width="144" height="144" fill="#111"/>
+<text x="72" y="36" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle" font-size="22" font-weight="600" fill="#ddd">Terminal</text>
+<g transform="translate(44 56) scale(2)"><path d="M5 8l6 6-6 6M14 21h9" fill="none" stroke="#4fc3f7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

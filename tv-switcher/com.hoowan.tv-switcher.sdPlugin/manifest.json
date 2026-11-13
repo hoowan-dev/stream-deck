@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+	"UUID": "com.hoowan.tv-switcher",
+	"Name": "TV Switcher",
+	"Version": "1.0.0.0",
+	"Author": "hoowan-dev",
+	"Description": "Toggle between the desk monitor and the TV using the tv-switcher CLI.",
+	"Icon": "imgs/plugin",
+	"Category": "TV Switcher",
+	"CategoryIcon": "imgs/category",
+	"CodePath": "bin/plugin.js",
+	"SDKVersion": 3,
+	"Software": { "MinimumVersion": "7.1" },
+	"OS": [{ "Platform": "windows", "MinimumVersion": "10" }],
+	"Nodejs": { "Version": "24", "Debug": "enabled" },
+	"Actions": [
+		{
+			"UUID": "com.hoowan.tv-switcher.toggle",
+			"Name": "Toggle TV / Desktop",
+			"Tooltip": "Switch between the desk monitor (0) and the TV (1)",
+			"Icon": "imgs/action",
+			"Controllers": ["Keypad"],
+			"SupportedInMultiActions": false,
+			"States": [{ "Image": "imgs/key", "ShowTitle": false }]
+		}
+	]
+}

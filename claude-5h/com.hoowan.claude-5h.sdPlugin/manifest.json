@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+	"UUID": "com.hoowan.claude-5h",
+	"Name": "Claude 5h Usage",
+	"Version": "1.0.0.0",
+	"Author": "hoowan-dev",
+	"Description": "Shows Claude 5-hour usage limit utilization. Press to refresh.",
+	"Icon": "imgs/plugin",
+	"Category": "Claude 5h Usage",
+	"CategoryIcon": "imgs/category",
+	"CodePath": "bin/plugin.js",
+	"SDKVersion": 3,
+	"Software": { "MinimumVersion": "7.1" },
+	"OS": [{ "Platform": "windows", "MinimumVersion": "10" }],
+	"Nodejs": { "Version": "24", "Debug": "enabled" },
+	"Actions": [
+		{
+			"UUID": "com.hoowan.claude-5h.usage",
+			"Name": "5-Hour Usage",
+			"Tooltip": "Shows Claude 5-hour usage limit utilization. Press to refresh.",
+			"Icon": "imgs/action",
+			"Controllers": ["Keypad"],
+			"SupportedInMultiActions": false,
+			"States": [{ "Image": "imgs/key", "ShowTitle": false }]
+		}
+	]
+}

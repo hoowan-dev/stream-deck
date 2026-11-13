@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+	"UUID": "com.hoowan.terminal",
+	"Name": "Open Terminal",
+	"Version": "1.0.0.0",
+	"Author": "hoowan-dev",
+	"Description": "Opens Windows Terminal.",
+	"Icon": "imgs/plugin",
+	"Category": "Open Terminal",
+	"CategoryIcon": "imgs/category",
+	"CodePath": "bin/plugin.js",
+	"SDKVersion": 3,
+	"Software": { "MinimumVersion": "7.1" },
+	"OS": [{ "Platform": "windows", "MinimumVersion": "10" }],
+	"Nodejs": { "Version": "24", "Debug": "enabled" },
+	"Actions": [
+		{
+			"UUID": "com.hoowan.terminal.launch",
+			"Name": "Open Terminal",
+			"Tooltip": "Opens Windows Terminal.",
+			"Icon": "imgs/action",
+			"Controllers": ["Keypad"],
+			"SupportedInMultiActions": true,
+			"States": [{ "Image": "imgs/key", "ShowTitle": false }]
+		}
+	]
+}

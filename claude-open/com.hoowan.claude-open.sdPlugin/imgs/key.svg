@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+<rect width="144" height="144" fill="#111"/>
+<g transform="translate(44 56) scale(2)" fill="none"><path d="M14 3.5v21M3.5 14h21M6.6 6.6l14.8 14.8M21.4 6.6 6.6 21.4" stroke="#d97757" stroke-width="2.6" stroke-linecap="round"/></g>
+<text x="72" y="36" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle" font-size="22" font-weight="600" fill="#ddd">Open Claude</text>
+</svg>
