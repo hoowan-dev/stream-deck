@@ -1,0 +1,108 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+	"UUID": "com.hoowan.obsidian",
+	"Name": "Obsidian",
+	"Version": "1.0.0.0",
+	"Author": "hoowan-dev",
+	"Description": "Obsidian shortcuts: open, sidebars and today's daily note.",
+	"Icon": "imgs/plugin",
+	"Category": "Obsidian",
+	"CategoryIcon": "imgs/category",
+	"CodePath": "bin/plugin.js",
+	"SDKVersion": 3,
+	"Software": {
+		"MinimumVersion": "7.1"
+	},
+	"OS": [
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "24",
+		"Debug": "enabled"
+	},
+	"Actions": [
+		{
+			"UUID": "com.hoowan.obsidian.left-sidebar",
+			"Name": "Toggle Left Sidebar",
+			"Tooltip": "Brings Obsidian to the front and presses Ctrl+Alt+Left.",
+			"Icon": "imgs/action-left-sidebar",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-left-sidebar",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.obsidian.right-sidebar",
+			"Name": "Toggle Right Sidebar",
+			"Tooltip": "Brings Obsidian to the front and presses Ctrl+Alt+Right.",
+			"Icon": "imgs/action-right-sidebar",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-right-sidebar",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.obsidian.open",
+			"Name": "Open Obsidian",
+			"Tooltip": "Opens Obsidian, or brings it to the front.",
+			"Icon": "imgs/action-open",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-open",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.obsidian.all-sidebars",
+			"Name": "All Sidebars",
+			"Tooltip": "Brings Obsidian to the front and presses Ctrl+Left Shift+S twice, half a second apart.",
+			"Icon": "imgs/action-all-sidebars",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-all-sidebars",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.obsidian.daily-note",
+			"Name": "Daily Note",
+			"Tooltip": "Brings Obsidian to the front and opens (or creates) today's daily note.",
+			"Icon": "imgs/action-daily-note",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-daily-note",
+					"ShowTitle": false
+				}
+			]
+		}
+	]
+}

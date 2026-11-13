@@ -61,6 +61,21 @@ Two keys for my TOPPING E2x2 audio interface, under the **Topping** category.
 - The E2x2 can't be asked for its settings, but it reports every change, so the keys also follow changes made in the Control Center. At startup they use whichever is newer: their own last-seen state, or the Control Center's saved profile (which it writes to the interface every time it starts).
 - `node-hid` is a native module, so it isn't bundled. Run `npm install` in `topping/` before using the plugin.
 
+### Obsidian (`obsidian/`)
+
+Five keys under the **Obsidian** category. Each one first makes sure Obsidian is open and in front, launching or restoring it if needed. Then:
+
+| Key | Does |
+| --- | --- |
+| Toggle Left Sidebar | Ctrl+Alt+Left |
+| Toggle Right Sidebar | Ctrl+Alt+Right |
+| Open Obsidian | Nothing more |
+| All Sidebars | Ctrl+Left Shift+S, then again half a second later |
+| Daily Note | Opens or creates today's daily note via `obsidian://daily` (same command as the ribbon button) |
+
+- The shortcuts match the hotkeys set in my vault.
+- Focusing windows and sending keystrokes is done by a small hidden PowerShell helper (`helper/win.ps1`) that the plugin keeps running.
+
 ## Install
 
 Each plugin is its own npm project. For each folder:
@@ -97,3 +112,4 @@ Then drag the action onto a key from its category in the Stream Deck app. Logs g
 - Claude Code, logged in (Claude only)
 - Windows Terminal (launchers only)
 - TOPPING E2x2 with the TOPPING Pro driver (Topping only)
+- Obsidian, installed in `C:\Program Files\Obsidian` (Obsidian only)
