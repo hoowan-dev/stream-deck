@@ -47,6 +47,20 @@ Opens a new Windows Terminal window (default profile) in your home folder. Works
 
 Both launchers start Windows Terminal through its `wt.exe` app-execution alias.
 
+### Topping (`topping/`)
+
+Two keys for my TOPPING E2x2 audio interface, under the **Topping** category.
+
+| Key | Toggles |
+| --- | --- |
+| Mic (IN1) | MON and 48V phantom power on IN1, together |
+| Inst (IN2) | MON on IN2 |
+
+- The icon is green when on, amber when only partly on (e.g. MON on but 48V off) and grey when off. A green ring marks a fully-on key, and the bottom line lights each setting's name.
+- The plugin sends the same HID reports as TOPPING Professional Control Center, via [node-hid](https://github.com/node-hid/node-hid). The protocol notes come from [tpmix](https://gitlab.com/terrance_m/tpmix) plus watching the Control Center drive the E2x2.
+- The E2x2 can't be asked for its settings, but it reports every change, so the keys also follow changes made in the Control Center. At startup they use whichever is newer: their own last-seen state, or the Control Center's saved profile (which it writes to the interface every time it starts).
+- `node-hid` is a native module, so it isn't bundled. Run `npm install` in `topping/` before using the plugin.
+
 ## Install
 
 Each plugin is its own npm project. For each folder:
@@ -82,3 +96,4 @@ Then drag the action onto a key from its category in the Stream Deck app. Logs g
 - [`tv-switcher`](https://github.com/hoowan-dev/tv-switcher) (TV Switcher only)
 - Claude Code, logged in (Claude only)
 - Windows Terminal (launchers only)
+- TOPPING E2x2 with the TOPPING Pro driver (Topping only)

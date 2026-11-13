@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+	"UUID": "com.hoowan.topping",
+	"Name": "Topping",
+	"Version": "1.0.0.0",
+	"Author": "hoowan-dev",
+	"Description": "Toggle MON and 48V on a TOPPING E2x2 audio interface.",
+	"Icon": "imgs/plugin",
+	"Category": "Topping",
+	"CategoryIcon": "imgs/category",
+	"CodePath": "bin/plugin.js",
+	"SDKVersion": 3,
+	"Software": {
+		"MinimumVersion": "7.1"
+	},
+	"OS": [
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "24",
+		"Debug": "enabled"
+	},
+	"Actions": [
+		{
+			"UUID": "com.hoowan.topping.mic",
+			"Name": "Mic (IN1: MON + 48V)",
+			"Tooltip": "Toggles MON and 48V phantom power on IN1 of the E2x2.",
+			"Icon": "imgs/action-mic",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-mic",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.topping.inst",
+			"Name": "Inst (IN2: MON)",
+			"Tooltip": "Toggles MON on IN2 of the E2x2.",
+			"Icon": "imgs/action-inst",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-inst",
+					"ShowTitle": false
+				}
+			]
+		}
+	]
+}
