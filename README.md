@@ -20,9 +20,13 @@ A key that toggles between my desk monitor and the TV using my [`tv-switcher`](h
 - Pressing it runs `tv-switcher 0` or `tv-switcher 1`, and the key shows `...` while the switch runs.
 - The current mode comes from `tv-switcher status`: if the TV is the primary display it's `TV`, otherwise `Desktop`. The key checks this on appear, after each press and every 20 s, so switches made from a terminal show up too.
 
-### Claude Usage (`claude-5h/`, `claude-w/`)
+### Claude (`claude/`)
 
-Two keys showing my Claude usage-limit utilization: one for the 5-hour window, one for the week.
+One plugin with three keys, all under the **Claude** category: **5-Hour Usage**, **Weekly Usage** and **Open Claude**.
+
+#### Usage keys
+
+Show my Claude usage-limit utilization: one for the 5-hour window, one for the week.
 
 | Line | Shows |
 | --- | --- |
@@ -30,17 +34,18 @@ Two keys showing my Claude usage-limit utilization: one for the 5-hour window, o
 | Middle | Usage %, coloured green < 50%, amber < 80%, red ≥ 80% |
 | Bottom | Progress bar and reset time (`resets 5:20 PM` / `resets Wed 11 PM`) |
 
-- Data comes from the endpoint behind Claude Code's `/usage`. It's authenticated with the token Claude Code stores in `~/.claude/.credentials.json`. The plugins only read that token and never refresh it, so if a key shows "token expired", run `claude` once.
-- The endpoint rate-limits hard, so both plugins share one cached response (`%TEMP%\streamdeck-claude-usage.json`) and make one request between them. They refresh every 3 minutes, and pressing a key refreshes it (at most every 30 s). After a `429` they wait out the `Retry-After` period and keep showing the last good value.
+- Data comes from the endpoint behind Claude Code's `/usage`. It's authenticated with the token Claude Code stores in `~/.claude/.credentials.json`. The plugin only reads that token and never refresh it, so if a key shows "token expired", run `claude` once.
+- The endpoint rate-limits hard, so both keys share one in-memory copy of the response and make one request between them. They refresh every 3 minutes, and pressing a key refreshes it (at most every 30 s). After a `429` they wait out the `Retry-After` period and keep showing the last good value.
 
-### Launchers (`terminal/`, `claude-open/`)
+#### Open Claude
 
-| Plugin | Does |
-| --- | --- |
-| Open Terminal | Opens a new Windows Terminal window (default profile) in your home folder |
-| Open Claude | Opens a new Windows Terminal window in your home folder running `claude` |
+Opens a new Windows Terminal window in your home folder running `claude`. Works inside multi-actions.
 
-Both launch Windows Terminal through its `wt.exe` app-execution alias, and both work inside multi-actions.
+### Open Terminal (`terminal/`)
+
+Opens a new Windows Terminal window (default profile) in your home folder. Works inside multi-actions.
+
+Both launchers start Windows Terminal through its `wt.exe` app-execution alias.
 
 ## Install
 
@@ -61,7 +66,7 @@ Then drag the action onto a key from its category in the Stream Deck app. Logs g
 
 ```
 <plugin>/
-├── src/plugin.js                 plugin source (all of the logic)
+├── src/                          plugin source (entry point: plugin.js)
 ├── rollup.config.js              bundles the SDK into bin/plugin.js
 └── com.hoowan.<plugin>.sdPlugin/ the plugin Stream Deck loads
     ├── manifest.json
@@ -75,5 +80,5 @@ Then drag the action onto a key from its category in the Stream Deck app. Logs g
 - Stream Deck 7.1 or newer
 - Node.js (for building only; Stream Deck runs the plugins on its bundled Node 24)
 - [`tv-switcher`](https://github.com/hoowan-dev/tv-switcher) (TV Switcher only)
-- Claude Code, logged in (Claude Usage and Open Claude only)
+- Claude Code, logged in (Claude only)
 - Windows Terminal (launchers only)

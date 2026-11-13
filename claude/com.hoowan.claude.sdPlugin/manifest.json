@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+	"UUID": "com.hoowan.claude",
+	"Name": "Claude",
+	"Version": "1.0.0.0",
+	"Author": "hoowan-dev",
+	"Description": "Claude usage-limit keys and a Claude Code launcher.",
+	"Icon": "imgs/plugin",
+	"Category": "Claude",
+	"CategoryIcon": "imgs/category",
+	"CodePath": "bin/plugin.js",
+	"SDKVersion": 3,
+	"Software": { "MinimumVersion": "7.1" },
+	"OS": [{ "Platform": "windows", "MinimumVersion": "10" }],
+	"Nodejs": { "Version": "24", "Debug": "enabled" },
+	"Actions": [
+		{
+			"UUID": "com.hoowan.claude.usage-5h",
+			"Name": "5-Hour Usage",
+			"Tooltip": "Shows Claude 5-hour usage limit utilization. Press to refresh.",
+			"Icon": "imgs/action",
+			"Controllers": ["Keypad"],
+			"SupportedInMultiActions": false,
+			"States": [{ "Image": "imgs/key-5h", "ShowTitle": false }]
+		},
+		{
+			"UUID": "com.hoowan.claude.usage-week",
+			"Name": "Weekly Usage",
+			"Tooltip": "Shows Claude weekly usage limit utilization. Press to refresh.",
+			"Icon": "imgs/action",
+			"Controllers": ["Keypad"],
+			"SupportedInMultiActions": false,
+			"States": [{ "Image": "imgs/key-week", "ShowTitle": false }]
+		},
+		{
+			"UUID": "com.hoowan.claude.open",
+			"Name": "Open Claude",
+			"Tooltip": "Opens Windows Terminal and launches Claude Code.",
+			"Icon": "imgs/action",
+			"Controllers": ["Keypad"],
+			"SupportedInMultiActions": true,
+			"States": [{ "Image": "imgs/key-open", "ShowTitle": false }]
+		}
+	]
+}

@@ -1,7 +1,7 @@
 import commonjs from "@rollup/plugin-commonjs";
 import nodeResolve from "@rollup/plugin-node-resolve";
 
-const sdPlugin = "com.hoowan.claude-w.sdPlugin";
+const sdPlugin = "com.hoowan.claude.sdPlugin";
 
 export default {
 	input: "src/plugin.js",
