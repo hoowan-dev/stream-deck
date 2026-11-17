@@ -39,11 +39,11 @@ Show my Claude usage-limit utilization: one for the 5-hour window, one for the w
 
 #### Open Claude
 
-Opens a new Windows Terminal window in your home folder running `claude`. Works inside multi-actions.
+Opens a new Windows Terminal window in `C:\dev` (or your home folder if it doesn't exist) running `claude`. Works inside multi-actions.
 
 ### Open Terminal (`terminal/`)
 
-Opens a new Windows Terminal window (default profile) in your home folder. Works inside multi-actions.
+Opens a new Windows Terminal window (default profile) in `C:\dev` (or your home folder if it doesn't exist). Works inside multi-actions.
 
 Both launchers start Windows Terminal through its `wt.exe` app-execution alias.
 

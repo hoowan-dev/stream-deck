@@ -1,4 +1,5 @@
 import { spawn } from "node:child_process";
+import { existsSync } from "node:fs";
 import { homedir } from "node:os";
 import { join } from "node:path";
 
@@ -10,6 +11,9 @@ const DEFAULT_TITLE = "Terminal";
 // Windows Terminal's app-execution alias. (fs.existsSync reports false for these reparse points,
 // but CreateProcess launches them fine, so use the full path unconditionally.)
 const WT = process.env.LOCALAPPDATA ? join(process.env.LOCALAPPDATA, "Microsoft", "WindowsApps", "wt.exe") : "wt.exe";
+
+// Start in C:\dev, falling back to the home folder if it doesn't exist.
+const START_DIR = existsSync("C:\\dev") ? "C:\\dev" : homedir();
 
 // --- Title field -> top line -------------------------------------------------
 // The key's Title field sets the top line. The manifest hides Stream Deck's own title rendering;
@@ -59,8 +63,8 @@ class OpenTerminal extends SingletonAction {
 	}
 
 	onKeyDown(ev) {
-		// New Windows Terminal window with its default profile, starting in the home folder.
-		const child = spawn(WT, ["-d", homedir()], { cwd: homedir(), detached: true, stdio: "ignore" });
+		// New Windows Terminal window with its default profile, starting in C:\dev.
+		const child = spawn(WT, ["-d", START_DIR], { cwd: START_DIR, detached: true, stdio: "ignore" });
 		child.on("error", (e) => {
 			streamDeck.logger.error(`launch failed: ${e.message}`);
 			ev.action.showAlert();

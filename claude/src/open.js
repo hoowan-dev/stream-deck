@@ -11,6 +11,9 @@ import { svgImage, TitledAction, topLine } from "./titled-action.js";
 const LOCAL_EXE = join(homedir(), ".local", "bin", "claude.exe");
 const CLAUDE = existsSync(LOCAL_EXE) ? LOCAL_EXE : "claude";
 
+// Start in C:\dev, falling back to the home folder if it doesn't exist.
+const START_DIR = existsSync("C:\\dev") ? "C:\\dev" : homedir();
+
 // Windows Terminal's app-execution alias. (fs.existsSync reports false for these reparse points,
 // but CreateProcess launches them fine, so use the full path unconditionally.)
 const WT = process.env.LOCALAPPDATA
@@ -20,14 +23,14 @@ const WT = process.env.LOCALAPPDATA
 const ICON =
 	'<g transform="translate(44 56) scale(2)" fill="none"><path d="M14 3.5v21M3.5 14h21M6.6 6.6l14.8 14.8M21.4 6.6 6.6 21.4" stroke="#d97757" stroke-width="2.6" stroke-linecap="round"/></g>';
 
-/** A key that opens a new Windows Terminal window in the home folder running Claude Code. */
+/** A key that opens a new Windows Terminal window in C:\dev running Claude Code. */
 export class OpenClaudeAction extends TitledAction {
 	draw(action) {
 		return action.setImage(svgImage(topLine(this.topText(action)) + ICON));
 	}
 
 	onKeyDown(ev) {
-		const child = spawn(WT, ["-d", homedir(), CLAUDE], { cwd: homedir(), detached: true, stdio: "ignore" });
+		const child = spawn(WT, ["-d", START_DIR, CLAUDE], { cwd: START_DIR, detached: true, stdio: "ignore" });
 		child.on("error", (e) => {
 			streamDeck.logger.error(`launch failed: ${e.message}`);
 			ev.action.showAlert();

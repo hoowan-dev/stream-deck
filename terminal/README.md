@@ -1,6 +1,6 @@
 # Stream Deck: Open Terminal
 
-Key that opens a new Windows Terminal window (its default profile) in your home folder, via the
+Key that opens a new Windows Terminal window (its default profile) in `C:\dev` (or your home folder if it doesn't exist), via the
 `wt.exe` app-execution alias. Works inside multi-actions too.
 
 ## Build / install

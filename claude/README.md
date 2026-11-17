@@ -6,7 +6,7 @@ One plugin with three keys under the **Claude** category:
 | --- | --- |
 | 5-Hour Usage | Claude 5-hour usage-limit %, progress bar and reset time. Press to refresh. |
 | Weekly Usage | The same for the weekly limit. |
-| Open Claude | Opens a new Windows Terminal window in your home folder running `claude`. |
+| Open Claude | Opens a new Windows Terminal window in `C:\dev` (or your home folder if it doesn't exist) running `claude`. |
 
 Usage is green < 50%, amber < 80%, red ≥ 80%. It refreshes every 3 min, and a key press refreshes
 it (at most every 30 s).
