@@ -97,6 +97,21 @@ Three keys under the **Focussed Volume** category that change the volume of the 
 - The bottom line shows the focused app and its volume (`Spotify 40%`), updated every 1.5 s. An app that hasn't played sound since it started shows `no audio`.
 - Like the Obsidian plugin, it uses a small hidden PowerShell helper (`helper/volume.ps1`) to reach the Windows audio APIs.
 
+### VS Code (`vscode/`)
+
+Five keys under the **VS Code** category that act on the focused VS Code window. If the focused window isn't VS Code, the most recently used VS Code window is brought to the front first.
+
+| Key | Does |
+| --- | --- |
+| Left Sidebar | Ctrl+B (Primary Side Bar) |
+| Right Sidebar | Ctrl+Alt+B (Secondary Side Bar) |
+| Panel | Ctrl+J (bottom panel) |
+| Run & Debug | F5 (starts the selected launch configuration) |
+| Recent | Opens a new empty window showing Open Recent (Ctrl+R); the workspace you pick opens in it |
+
+- The shortcuts are VS Code's defaults.
+- Like the Obsidian plugin, it uses a small hidden PowerShell helper (`helper/vscode.ps1`) for focusing windows and sending keystrokes.
+
 ## Install
 
 Each plugin is its own npm project. For each folder:
@@ -135,3 +150,4 @@ Then drag the action onto a key from its category in the Stream Deck app. Logs g
 - TOPPING E2x2 with the TOPPING Pro driver (Topping only)
 - Obsidian, installed in `C:\Program Files\Obsidian` (Obsidian only)
 - `alexa-lights` CLI in `C:\dev\alexa\alexa-lights`, signed in (Alexa Lights only)
+- VS Code, installed for the current user (`%LOCALAPPDATA%\Programs\Microsoft VS Code`) (VS Code only)

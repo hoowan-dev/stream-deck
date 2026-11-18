@@ -1,0 +1,108 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+	"UUID": "com.hoowan.vscode",
+	"Name": "VS Code",
+	"Version": "1.0.0.0",
+	"Author": "hoowan-dev",
+	"Description": "VS Code shortcuts for the focused window: sidebars, panel, Run and Debug, and Open Recent.",
+	"Icon": "imgs/plugin",
+	"Category": "VS Code",
+	"CategoryIcon": "imgs/category",
+	"CodePath": "bin/plugin.js",
+	"SDKVersion": 3,
+	"Software": {
+		"MinimumVersion": "7.1"
+	},
+	"OS": [
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "24",
+		"Debug": "enabled"
+	},
+	"Actions": [
+		{
+			"UUID": "com.hoowan.vscode.left-sidebar",
+			"Name": "Toggle Left Sidebar",
+			"Tooltip": "Toggles the Primary Side Bar of the focused VS Code window (Ctrl+B).",
+			"Icon": "imgs/action-left-sidebar",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-left-sidebar",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.vscode.right-sidebar",
+			"Name": "Toggle Right Sidebar",
+			"Tooltip": "Toggles the Secondary Side Bar of the focused VS Code window (Ctrl+Alt+B).",
+			"Icon": "imgs/action-right-sidebar",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-right-sidebar",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.vscode.panel",
+			"Name": "Toggle Panel",
+			"Tooltip": "Toggles the bottom panel of the focused VS Code window (Ctrl+J).",
+			"Icon": "imgs/action-panel",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-panel",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.vscode.debug",
+			"Name": "Run and Debug",
+			"Tooltip": "Starts the selected Run and Debug configuration in the focused VS Code window (F5).",
+			"Icon": "imgs/action-debug",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-debug",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.vscode.recent",
+			"Name": "Open Recent",
+			"Tooltip": "Opens a new VS Code window showing your recent workspaces; the one you pick opens there.",
+			"Icon": "imgs/action-recent",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-recent",
+					"ShowTitle": false
+				}
+			]
+		}
+	]
+}
