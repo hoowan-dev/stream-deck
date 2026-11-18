@@ -1,0 +1,108 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+	"UUID": "com.hoowan.alexa-lights",
+	"Name": "Alexa Lights",
+	"Version": "1.0.0.0",
+	"Author": "hoowan-dev",
+	"Description": "Run my Alexa light routines: living room, bedroom and mood lights.",
+	"Icon": "imgs/plugin",
+	"Category": "Alexa Lights",
+	"CategoryIcon": "imgs/category",
+	"CodePath": "bin/plugin.js",
+	"SDKVersion": 3,
+	"Software": {
+		"MinimumVersion": "7.1"
+	},
+	"OS": [
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "24",
+		"Debug": "enabled"
+	},
+	"Actions": [
+		{
+			"UUID": "com.hoowan.alexa-lights.living-room-on",
+			"Name": "Living Room Lights On",
+			"Tooltip": "Runs the Alexa routine \"living room lights on\".",
+			"Icon": "imgs/action-living-room-on",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-living-room-on",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.alexa-lights.living-room-off",
+			"Name": "Living Room Lights Off",
+			"Tooltip": "Runs the Alexa routine \"living room lights off\".",
+			"Icon": "imgs/action-living-room-off",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-living-room-off",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.alexa-lights.bedroom-on",
+			"Name": "Bedroom Lights On",
+			"Tooltip": "Runs the Alexa routine \"bedroom lights on\".",
+			"Icon": "imgs/action-bedroom-on",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-bedroom-on",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.alexa-lights.bedroom-off",
+			"Name": "Bedroom Lights Off",
+			"Tooltip": "Runs the Alexa routine \"bedroom lights off\".",
+			"Icon": "imgs/action-bedroom-off",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-bedroom-off",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.alexa-lights.mood-on",
+			"Name": "Mood Lights On",
+			"Tooltip": "Runs the Alexa routine \"mood lights on\".",
+			"Icon": "imgs/action-mood-on",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-mood-on",
+					"ShowTitle": false
+				}
+			]
+		}
+	]
+}

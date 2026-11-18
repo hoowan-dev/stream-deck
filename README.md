@@ -76,6 +76,13 @@ Five keys under the **Obsidian** category. Each one first makes sure Obsidian is
 - The shortcuts match the hotkeys set in my vault.
 - Focusing windows and sending keystrokes is done by a small hidden PowerShell helper (`helper/win.ps1`) that the plugin keeps running.
 
+### Alexa Lights (`alexa-lights/`)
+
+Five keys under the **Alexa Lights** category that run my Alexa light routines: **Living Room Lights On/Off**, **Bedroom Lights On/Off** and **Mood Lights On**.
+
+- Each press runs my `alexa-lights` CLI (`C:\dev\alexa\alexa-lights`) with the routine's phrase, e.g. `living room lights on`. The key shows `...` while it runs, then a check mark or an alert.
+- The CLI must be installed and signed in (`alexa login`). If it isn't signed in, the key gives up after 30 s.
+
 ## Install
 
 Each plugin is its own npm project. For each folder:
@@ -113,3 +120,4 @@ Then drag the action onto a key from its category in the Stream Deck app. Logs g
 - Windows Terminal (launchers only)
 - TOPPING E2x2 with the TOPPING Pro driver (Topping only)
 - Obsidian, installed in `C:\Program Files\Obsidian` (Obsidian only)
+- `alexa-lights` CLI in `C:\dev\alexa\alexa-lights`, signed in (Alexa Lights only)
