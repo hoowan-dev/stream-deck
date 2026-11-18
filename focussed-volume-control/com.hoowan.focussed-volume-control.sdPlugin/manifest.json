@@ -1,0 +1,78 @@
+{
+	"$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+	"UUID": "com.hoowan.focussed-volume-control",
+	"Name": "Focussed Volume",
+	"Version": "1.0.0.0",
+	"Author": "hoowan-dev",
+	"Description": "Volume up, volume down and mute for the app in the focused window.",
+	"Icon": "imgs/plugin",
+	"Category": "Focussed Volume",
+	"CategoryIcon": "imgs/category",
+	"CodePath": "bin/plugin.js",
+	"SDKVersion": 3,
+	"Software": {
+		"MinimumVersion": "7.1"
+	},
+	"OS": [
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "24",
+		"Debug": "enabled"
+	},
+	"Actions": [
+		{
+			"UUID": "com.hoowan.focussed-volume-control.up",
+			"Name": "Volume Up",
+			"Tooltip": "Raises the focused window's app volume by the key's increment (default 10%). Also unmutes it.",
+			"Icon": "imgs/action-up",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"PropertyInspectorPath": "ui/step.html",
+			"States": [
+				{
+					"Image": "imgs/key-up",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.focussed-volume-control.down",
+			"Name": "Volume Down",
+			"Tooltip": "Lowers the focused window's app volume by the key's increment (default 10%).",
+			"Icon": "imgs/action-down",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"PropertyInspectorPath": "ui/step.html",
+			"States": [
+				{
+					"Image": "imgs/key-down",
+					"ShowTitle": false
+				}
+			]
+		},
+		{
+			"UUID": "com.hoowan.focussed-volume-control.mute",
+			"Name": "Toggle Mute",
+			"Tooltip": "Mutes or unmutes the focused window's app.",
+			"Icon": "imgs/action-mute",
+			"Controllers": [
+				"Keypad"
+			],
+			"SupportedInMultiActions": true,
+			"States": [
+				{
+					"Image": "imgs/key-mute",
+					"ShowTitle": false
+				}
+			]
+		}
+	]
+}

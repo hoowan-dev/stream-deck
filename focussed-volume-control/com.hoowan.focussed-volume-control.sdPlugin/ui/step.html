@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+	body { margin: 0; padding: 8px 12px; background: #2d2d2d; color: #d8d8d8; font: 9pt "Segoe UI", Arial, sans-serif; }
+	.row { display: flex; align-items: center; gap: 8px; min-height: 30px; }
+	label { width: 96px; flex: none; color: #969696; text-align: right; }
+	input { width: 64px; padding: 4px 6px; background: #3d3d3d; color: #d8d8d8; border: 1px solid #3d3d3d; border-radius: 3px; font: inherit; }
+	input:focus { outline: none; border-color: #0078ff; }
+	.unit, .hint { color: #969696; }
+	.hint { margin: 2px 0 0 104px; font-size: 8pt; }
+</style>
+</head>
+<body>
+	<div class="row">
+		<label for="step">Increment</label>
+		<input id="step" type="number" min="1" max="100" step="1" value="10" />
+		<span class="unit">%</span>
+	</div>
+	<div class="hint">Percentage points per press (1–100, default 10).</div>
+<script>
+	// Minimal property inspector: reads and writes the key's "step" setting.
+	const DEFAULT_STEP = 10;
+	const input = document.getElementById("step");
+	let ws, context, settings = {};
+
+	function show() {
+		input.value = settings.step ?? DEFAULT_STEP;
+	}
+
+	function save() {
+		const n = Math.round(Number(input.value));
+		if (!(n >= 1 && n <= 100)) return;
+		settings = { ...settings, step: n };
+		ws?.send(JSON.stringify({ event: "setSettings", context, payload: settings }));
+	}
+
+	input.addEventListener("input", save);
+	input.addEventListener("change", () => { save(); show(); });
+
+	// Called by Stream Deck when the inspector loads.
+	window.connectElgatoStreamDeckSocket = (port, uuid, registerEvent, info, actionInfo) => {
+		context = uuid;
+		settings = JSON.parse(actionInfo).payload.settings ?? {};
+		show();
+		ws = new WebSocket(`ws://127.0.0.1:${port}`);
+		ws.onopen = () => ws.send(JSON.stringify({ event: registerEvent, uuid }));
+		ws.onmessage = (e) => {
+			const msg = JSON.parse(e.data);
+			if (msg.event === "didReceiveSettings") {
+				settings = msg.payload.settings ?? {};
+				if (document.activeElement !== input) show();
+			}
+		};
+	};
+</script>
+</body>
+</html>

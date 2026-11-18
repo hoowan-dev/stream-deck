@@ -83,6 +83,20 @@ Five keys under the **Alexa Lights** category that run my Alexa light routines: 
 - Each press runs my `alexa-lights` CLI (`C:\dev\alexa\alexa-lights`) with the routine's phrase, e.g. `living room lights on`. The key shows `...` while it runs, then a check mark or an alert.
 - The CLI must be installed and signed in (`alexa login`). If it isn't signed in, the key gives up after 30 s.
 
+### Focussed Volume (`focussed-volume-control/`)
+
+Three keys under the **Focussed Volume** category that change the volume of the app in the focused window, the same per-app volume as Windows' Volume Mixer.
+
+| Key | Does |
+| --- | --- |
+| Volume Up | Raises the app's volume by the key's increment (default 10%) and unmutes it |
+| Volume Down | Lowers the app's volume by the key's increment (default 10%) |
+| Toggle Mute | Mutes or unmutes the app |
+
+- The increment is set per key, in the key's **Increment** field.
+- The bottom line shows the focused app and its volume (`Spotify 40%`), updated every 1.5 s. An app that hasn't played sound since it started shows `no audio`.
+- Like the Obsidian plugin, it uses a small hidden PowerShell helper (`helper/volume.ps1`) to reach the Windows audio APIs.
+
 ## Install
 
 Each plugin is its own npm project. For each folder:
